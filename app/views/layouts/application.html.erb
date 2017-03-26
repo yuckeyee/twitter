@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Twitter</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <header>
+    <ul>
+      <li><%=link_to "Home", tweets_path %></li>
+      <li class="test"><%=link_to "ツイート", new_tweet_path,class: 'btn btn-default'%></li>
+    </ul>
+  </header>
+
+<%= yield %>
+
+  <footer>
+    <p>Ruby on Rails練習</p>
+  </footer>
+</body>
+</html>

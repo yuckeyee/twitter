@@ -1,0 +1,31 @@
+<div class="container">
+    <p><%=notice %></p>
+    <div class="row">
+        <div class="col-sm-5" id="profile">
+            <h2>Kayama</h2>
+            <p>@kayama</p>
+            <table class="info">
+                <tr>
+                    <th>ツイート</th>
+                    <th>フォロー</th>
+                    <th>フォロワー</th>
+                </tr>
+                <tr>
+                    <td><%=@tweets.count %></td>
+                    <td>２００</td>
+                    <td>２００</td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-sm-5" id="tweets">
+            <%=link_to "いまどうしてる？",new_tweet_path,class: 'btn btn-default' %>
+                <% @tweets.each do |tweet| %>
+                <div class="tweet">
+                    <p><%=tweet.content %></p>
+                    <%=link_to "編集", edit_tweet_path(tweet.id), class: 'btn btn-default btn-sm btn-success' %>
+                    <%=link_to "削除", tweet_path(tweet.id), method: :delete, data:{ confirm: '本当に削除してよろしいですか？'},class: 'btn btn-default btn-sm btn-danger' %>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>
